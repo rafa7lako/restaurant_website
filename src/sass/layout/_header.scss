@@ -1,7 +1,7 @@
 @use "../abstracts" as a;
 
 
-.overlay,
+
 .header .btn {
 	display: none;
 }
@@ -146,3 +146,43 @@
     transition: var(--transition-1);
 }
 .navbar-link:is(:hover, :focus-visible, .active) .separator {opacity: 1;}
+
+.navbar-title {
+    margin-block-end: 15px;
+}
+
+.navbar-text {
+    margin-block: 10px;
+}
+
+.navbar .body-4 { color: var(--quick-silver);}
+
+.sidebar-link {
+    transition: var(--transition-1);
+}
+
+.sidebar-link:is(:hover, :focus-visible) { color: var(--gold-crayola);}
+
+.navbar .text-center .separator {
+    margin-block: 30px;
+    margin-inline: auto;
+}
+
+.navbar .contact-label { margin-block-end: 10px;}
+
+.navbar::-webkit-scrollbar-thumb{background-color: var(--white-alpha-10);}
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: var(--black-alpha-80);
+    opacity: 0;
+    pointer-events: none;
+    transition: var(--transition-2);
+    z-index: 1;
+}
+
+.overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
