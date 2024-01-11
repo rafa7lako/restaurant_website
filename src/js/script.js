@@ -82,6 +82,50 @@ let lastActiveSliderItem = heroSliderItems[0];
 
 const updateSliderPos = () => {
     lastActiveSliderItem.classList.remove('active');
-    heroSliderItems[currentSliderPos].classList.add("active");
-    lastActiveSliderItem = heroSliderItems[currentSliderPos]
+    heroSliderItems[currentSlidePos].classList.add("active");
+    lastActiveSliderItem = heroSliderItems[currentSlidePos]
 }
+
+const slideNext = () => {
+    if(currentSlidePos >= heroSliderItems.length - 1){
+        currentSlidePos = 0;
+    } else {
+        currentSlidePos++
+    }
+
+    updateSliderPos()
+}
+
+heroSliderNextBtn.addEventListener("click", slideNext);
+
+const slidePrev = () => {
+    if (currentSlidePos <= 0) {
+        currentSlidePos = heroSliderItems.length - 1;
+    } else {
+        currentSlidePos--;
+    }
+
+    updateSliderPos()
+}
+
+heroSliderPrevBtn.addEventListener('click', slidePrev)
+
+/**
+ * auto slide
+ */
+
+let autoSlideInterval;
+
+const autoSlide = () => {
+    autoSlideInterval = setInterval(() => {
+        slideNext()
+    }, 7000);
+};
+
+addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseover", () => {
+    clearInterval(autoSlideInterval)
+});
+
+addEventOnElements([heroSliderNextBtn, heroSliderPrevBtn], "mouseover", autoSlide);
+
+window.addEventListener("load", autoSlide);

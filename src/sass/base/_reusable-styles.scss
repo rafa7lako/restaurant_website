@@ -64,7 +64,7 @@
 }
 
 .section-subtitle::after{
-    content: url(../../img/separator.svg);
+    content: url(../img/separator.svg);
     display: block;
     width: 100px;
     margin-inline: auto;
@@ -105,13 +105,12 @@
     position: absolute;
     top: 100%;
     left: 50%;
-    transform: translate(-50%);
+    transform: translateX(-50%);
     min-width: max-content;
     color: var(--smoky-black-1);
-
 }
 
-.btn:is(:hover, :focus-visible)::before{ bottom: -50%;}
+.btn:is(:hover, :focus-visible)::before{ bottom: -50%;} 
 
 .btn:is(:hover, :focus-visible) .text-1 {
     transform: translateY(-40px);
